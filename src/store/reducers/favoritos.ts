@@ -15,13 +15,14 @@ const favoritosSlice = createSlice({
   initialState,
   reducers: {
     favoritar: (state, action: PayloadAction<Produto>) => {
-      const favoritos = action.payload
+      const itensFavoritos = action.payload
 
-      if (state.itens.find((favoritos) => favoritos.id === favoritos.id)) {
-        alert('Item já adicionado')
+      if (state.itens.find((favoritos) => favoritos.id === itensFavoritos.id)) {
+        alert('Corrigir a remoção do favorito')
       } else {
-        state.itens.push(favoritos)
+        state.itens.push(itensFavoritos)
       }
+      console.log(itensFavoritos)
     }
   }
 })
