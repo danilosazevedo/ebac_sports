@@ -10,12 +10,12 @@ type Props = {
   favoritos: ProdutoType[]
 }
 
-const ProdutosComponent = ({ produtos, favoritos }: Props) => {
-  const isFavorite = useSelector((state: RootReducer) => state.favoritos.itens)
+const ProdutosComponent = ({ produtos }: Props) => {
+  const favoritos = useSelector((state: RootReducer) => state.favoritos.itens)
 
   const produtoEstaNosFavoritos = (produto: ProdutoType) => {
     const produtoId = produto.id
-    const IdsDosFavoritos = isFavorite.map((f) => f.id)
+    const IdsDosFavoritos = favoritos.map((f) => f.id)
 
     return IdsDosFavoritos.includes(produtoId)
   }

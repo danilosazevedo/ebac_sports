@@ -8,6 +8,7 @@ import { GlobalStyle } from './styles'
 import { store } from './store'
 
 export type Produto = {
+  findIndex: any
   id: number
   nome: string
   preco: number
@@ -16,7 +17,6 @@ export type Produto = {
 
 function App() {
   const [produtos, setProdutos] = useState<Produto[]>([])
-  const [favoritos, setFavoritos] = useState<Produto[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/ebac_sports')
@@ -29,7 +29,7 @@ function App() {
       <GlobalStyle />
       <div className="container">
         <Header />
-        <Produtos produtos={produtos} favoritos={favoritos} />
+        <Produtos produtos={produtos} favoritos={[]} />
       </div>
     </Provider>
   )
