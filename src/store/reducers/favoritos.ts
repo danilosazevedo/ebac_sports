@@ -16,10 +16,11 @@ const favoritosSlice = createSlice({
   reducers: {
     favoritar: (state, action: PayloadAction<Produto>) => {
       const itensFavoritos = action.payload
-      const novoArray = action.payload
 
       if (state.itens.find((favoritos) => favoritos.id === itensFavoritos.id)) {
-        state.itens.shift()
+        state.itens = state.itens.filter(
+          (favoritos) => favoritos.id !== action.payload.id
+        )
         // setTimeout(encontrarFavorito, 3000)
       } else {
         state.itens.push(itensFavoritos)
